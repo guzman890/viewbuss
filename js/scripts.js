@@ -1,5 +1,5 @@
 
-var urlApi = "http://apiadminbuss.herokuapp.com";
+var urlApi = "https://apiadminbuss.herokuapp.com";
 var app = angular.module("myApp", ['ngDialog']);
 
 app.controller("CtrlClientes", function($scope, $http, ngDialog) {
