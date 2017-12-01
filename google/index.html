@@ -60,10 +60,10 @@
     var rowsLabel;
     var rowsValue;
     for (i = 0; i < rows.length; i++) { 
-      rowsLabel[i] = rows[i].dimensions[0];
+      rowsLabel[i] = rows[i].dimensions;
     }
     for (i = 0; i < rows.length; i++) { 
-      rowsValue[i] = rows[i].metrics[0].values[0];
+      rowsValue[i] = rows[i].metrics.values;
     }
 
     document.getElementById('query-output1').value = rowsLabel;
