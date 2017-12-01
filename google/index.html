@@ -57,17 +57,16 @@
   function displayResults(response) {
     var formattedJson = JSON.stringify(response.result, null, 2);
     var rows = response.result.reports[0].data.rows;
-    var rowsLabel;
-    var rowsValue;
+    
     for (i = 0; i < rows.length; i++) { 
-      rowsLabel[i] = rows[i].dimensions;
+      console.log(rows[i].dimensions);
     }
     for (i = 0; i < rows.length; i++) { 
-      rowsValue[i] = rows[i].metrics.values;
+      console.log(rows[i].metrics);
     }
 
-    document.getElementById('query-output1').value = rowsLabel;
-    document.getElementById('query-output2').value = '<h1>'+rowsValue+'</h1>';
+    document.getElementById('query-output1').value = rows;
+    document.getElementById('query-output2').value = '<h1>'+rows+'</h1>';
   }
 </script>
 
