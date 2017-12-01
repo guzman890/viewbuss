@@ -56,7 +56,7 @@
 
   function displayResults(response) {
     var formattedJson = JSON.stringify(response.result, null, 2);
-    var rows = response.reports[0].data.rows;
+    var rows = response.result.reports[0].data.rows;
     var rowsLabel;
     var rowsValue;
     for (i = 0; i < rows.length; i++) { 
