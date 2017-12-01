@@ -57,8 +57,8 @@
   function displayResults(response) {
     var formattedJson = JSON.stringify(response.result, null, 2);
     var rows = formattedJson.reports[0].data.rows;
-    var rowsLabel = [];
-    var rowsValue = [];
+    var rowsLabel;
+    var rowsValue;
     for (i = 0; i < rows.length; i++) { 
       rowsLabel[i] = rows[i].dimensions[0];
     }
