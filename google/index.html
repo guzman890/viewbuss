@@ -57,14 +57,17 @@
   function displayResults(response) {
     var formattedJson = JSON.stringify(response.result, null, 2);
     var rows = response.result.reports[0].data.rows;
+    var rowsLabel
     var temp;
     for (i = 0; i < rows.length; i++) { 
       temp = JSON.stringify(rows[i].dimensions);
       temp = temp.substring(2,temp.length-2);
-      console.log(temp);
+      rowsLabel[i] = temp; 
     }
+    console.log(rowsLabel);
+
     for (i = 0; i < rows.length; i++) { 
-      temp = JSON.stringify(rows[i].metrics);
+      temp = JSON.stringify(rows[i].metrics[0].values);
       console.log(temp.substring(2,temp.length-2));
     }
 
