@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
   <title>Hello Analytics Reporting API V4</title>
   <meta name="google-signin-client_id" content="366832698318-vv5q3p7njtnrah9k8kqq2hoa75igkp0g.apps.googleusercontent.com">
   <meta name="google-signin-scope" content="https://www.googleapis.com/auth/analytics.readonly">
@@ -14,10 +15,11 @@
 <p class="g-signin2" data-onsuccess="queryReports"></p>
 
 <!-- The API response will be printed here. -->
-<textarea id="query-output1"></textarea>
-<textarea id="query-output2"></textarea>
+<canvas id="myChart" width="400" height="400"></canvas>
 
 <script>
+  var rowsLabel =[];
+  var rowsValue =[];
   // Replace with your view ID.
   var VIEW_ID = '163435911';
 
@@ -57,7 +59,6 @@
   function displayResults(response) {
     var formattedJson = JSON.stringify(response.result, null, 2);
     var rows = response.result.reports[0].data.rows;
-    var rowsLabel =[] ;
     var temp;
     for (i = 0; i < rows.length; i++) { 
       temp = JSON.stringify(rows[i].dimensions);
@@ -68,11 +69,50 @@
 
     for (i = 0; i < rows.length; i++) { 
       temp = JSON.stringify(rows[i].metrics[0].values);
-      console.log(temp.substring(2,temp.length-2));
+      temp = temp.substring(2,temp.length-2);
+      rowsValue[i] = temp;
     }
+    console.log(rowsValue);
 
-    document.getElementById('query-output1').value = rowsLabel;
-    document.getElementById('query-output2').value = '<h1>'+rows+'</h1>';
+
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: rowsLabel,
+          datasets: [{
+              label: '# of Votes',
+              data: rowsValue,
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+
   }
 </script>
 
