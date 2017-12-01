@@ -56,18 +56,18 @@
 
   function displayResults(response) {
     var formattedJson = JSON.stringify(response.result, null, 2);
-    var rows = formattedJson.reports[0].data.rows;
+    //var rows = formattedJson.reports.data.rows;
     var rowsLabel;
     var rowsValue;
-    for (i = 0; i < rows.length; i++) { 
+/*    for (i = 0; i < rows.length; i++) { 
       rowsLabel[i] = rows[i].dimensions[0];
     }
     for (i = 0; i < rows.length; i++) { 
       rowsValue[i] = rows[i].metrics[0].values[0];
     }
-
-    document.getElementById('query-output1').html = rowsLabel;
-    document.getElementById('query-output2').html = rowsValue;
+*/
+    document.getElementById('query-output1').html = formattedJson.reports;
+    document.getElementById('query-output2').text = formattedJson.reports.data;
   }
 </script>
 
