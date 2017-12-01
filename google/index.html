@@ -57,7 +57,7 @@
   function displayResults(response) {
     var formattedJson = JSON.stringify(response.result, null, 2);
     var rows = response.result.reports[0].data.rows;
-    var rowsLabel
+    var rowsLabel =[] ;
     var temp;
     for (i = 0; i < rows.length; i++) { 
       temp = JSON.stringify(rows[i].dimensions);
@@ -71,7 +71,7 @@
       console.log(temp.substring(2,temp.length-2));
     }
 
-    document.getElementById('query-output1').value = rows;
+    document.getElementById('query-output1').value = rowsLabel;
     document.getElementById('query-output2').value = '<h1>'+rows+'</h1>';
   }
 </script>
