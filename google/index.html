@@ -66,18 +66,14 @@
       temp1 = temp1.substring(2,temp1.length-2);
       temp2 = JSON.stringify(rows[i].metrics[0].values);
       temp2 = temp2.substring(2,temp2.length-2);
-      if(temp1.indexOf("/realizar-paquetes") != -1){
-        i--;
-      }else{
+      //if(temp1.indexOf("/realizar-paquetes") != -1){
+      //  i--;
+      //}else{
         rowsValue[i] = temp2;
         rowsLabel[i] = temp1; 
-      }
+      //}
     }
     console.log(rowsLabel);
-
-    for (i = 0; i < rows.length; i++) { 
-      
-    }
     console.log(rowsValue);
 
 
