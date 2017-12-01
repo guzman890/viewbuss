@@ -14,8 +14,8 @@
 <p class="g-signin2" data-onsuccess="queryReports"></p>
 
 <!-- The API response will be printed here. -->
-<div id="query-output1"></div>
-<div id="query-output2"></div>
+<textarea id="query-output1"></textarea>
+<textarea id="query-output2"></textarea>
 
 <script>
   // Replace with your view ID.
@@ -66,8 +66,8 @@
       rowsValue[i] = rows[i].metrics[0].values[0];
     }
 */
-    document.getElementById('query-output1').html = '<h1>'+formattedJson.reports+'</h1>';
-    document.getElementById('query-output2').text = '<h1>'+formattedJson.reports+'</h1>';
+    document.getElementById('query-output1').value = formattedJson;
+    document.getElementById('query-output2').value = '<h1>'+formattedJson.reports+'</h1>';
   }
 </script>
 
