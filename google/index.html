@@ -66,8 +66,8 @@
       rowsValue[i] = rows[i].metrics[0].values[0];
     }
 */
-    document.getElementById('query-output1').html = formattedJson.reports;
-    document.getElementById('query-output2').text = formattedJson.reports.data;
+    document.getElementById('query-output1').html = '<h1>'+formattedJson.reports+'</h1>';
+    document.getElementById('query-output2').text = '<h1>'+formattedJson.reports(0)+'</h1>';
   }
 </script>
 
