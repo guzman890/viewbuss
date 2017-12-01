@@ -59,10 +59,11 @@
     var rows = response.result.reports[0].data.rows;
     
     for (i = 0; i < rows.length; i++) { 
-      console.log(rows[i].dimensions);
+      console.log(JSON.stringify(rows[i].dimensions));
+      console.log(JSON.stringify(rows[i].dimensions.value));
     }
     for (i = 0; i < rows.length; i++) { 
-      console.log(rows[i].metrics);
+      console.log(JSON.stringify(rows[i].metrics.value));
     }
 
     document.getElementById('query-output1').value = rows;
