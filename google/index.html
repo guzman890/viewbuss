@@ -57,13 +57,15 @@
   function displayResults(response) {
     var formattedJson = JSON.stringify(response.result, null, 2);
     var rows = response.result.reports[0].data.rows;
-    
+    var temp;
     for (i = 0; i < rows.length; i++) { 
-      console.log(JSON.stringify(rows[i].dimensions));
-      console.log(JSON.stringify(rows[i].dimensions.value));
+      temp = JSON.stringify(rows[i].dimensions);
+      temp = temp.substring(2,temp.length-2);
+      console.log(temp);
     }
     for (i = 0; i < rows.length; i++) { 
-      console.log(JSON.stringify(rows[i].metrics.value));
+      temp = JSON.stringify(rows[i].metrics);
+      console.log(temp.substring(2,temp.length-2));
     }
 
     document.getElementById('query-output1').value = rows;
