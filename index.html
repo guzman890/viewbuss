@@ -21,6 +21,7 @@
             <li><a href="embarque.html">Embarque</a></li>
             <li><a href="clientes.html">Clientes</a></li>
             <li><a href="movilidades.html">Movilidades</a></li>
+            <li><a href="reportes.html">Reportes</a></li>
         </ul>
         <h1>Bienvenido</h1>
     </header>

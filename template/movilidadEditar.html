@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h3>Editar Movilidad</h3>
+</div>
+<form name="form.userForm" ng-submit="submitFormMovilidad()" novalidate>
+    <div class="modal-body">
+        <!-- Placa -->
+        <div class="form-group">
+            <label>Placa</label>
+            <input type="text" name="placa" class="form-control" ng-model="form.mov.placa" required>
+            <p ng-show="form.userForm.placa.$invalid && !form.userForm.placa.$pristine" class="help-block">Placa Requerido.</p>
+        </div>
+
+        <!-- Capacidad -->
+        <div class="form-group">
+            <label>Capacidad</label>
+            <input type="number" name="capacidad" class="form-control" ng-model="form.mov.capacidad" required>
+            <p ng-show="form.userForm.capacidad.$invalid && !form.userForm.capacidad.$pristine" class="help-block">Capacidad Requerido.</p>
+        </div>
+
+        <!-- Tipo -->
+        <div class="form-group">
+            <label>Tipo de Carro</label>
+            <input type="text" name="tipo" class="form-control" ng-model="form.mov.tipo" required>
+            <p ng-show="form.userForm.Tipo.$invalid && !form.userForm.Tipo.$pristine" class="help-block">Tipo o Documento de identidad es requerido.</p>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="form.userForm.$invalid">Guardar</button>
+    </div>
+</form>

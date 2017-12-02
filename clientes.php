@@ -26,6 +26,7 @@
             <li><a href="embarque.html">Embarque</a></li>
             <li class="active" ><a href="clientes.html">Clientes</a></li>
             <li><a href="movilidades.html">Movilidades</a></li>
+            <li><a href="reportes.html">Reportes</a></li>
         </ul>
         <h1>Clientes</h1>
     </header>
@@ -37,7 +38,7 @@
         <h5 class="list-group-item-text">{{cliente.DNI}}</h5>
         <br/>
 
-        <button ng-click="" class="btn btn-warning">Editar</button>
+        <button ng-click="editarCliente()" class="btn btn-warning">Editar</button>
         <button ng-click="" class="btn btn-danger">Eliminar</button>
 
     </div>

@@ -26,6 +26,7 @@
             <li><a href="embarque.html">Embarque</a></li>
             <li><a href="clientes.html">Clientes</a></li>
             <li class="active"><a href="movilidades.html">Movilidades</a></li>
+            <li><a href="reportes.html">Reportes</a></li>
         </ul>
         <h1>Movilidades</h1>
     </header>
@@ -38,7 +39,7 @@
                 <div class="list-group-item-text">Tipo: {{movilidad.Tipo}}</div>
                 <br/>
 
-        <button ng-click="" class="btn btn-warning">Editar</button>
+        <button ng-click="editarMovilidad()" class="btn btn-warning">Editar</button>
         <button ng-click="" class="btn btn-danger">Eliminar</button>    
     </div>
 

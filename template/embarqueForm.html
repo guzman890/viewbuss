@@ -39,12 +39,17 @@
                 <option value="" selected disabled hidden>---Minutos---</option> <!-- not selected / blank option -->    
                 <option ng-repeat="Minuto in [00, 10, 15, 20, 30 ,40 ,45, 50]" >{{Minuto}}</option>
             </select>
-
+            
             
         </div>
         <p ng-show="form.userForm.HH.$invalid && !form.userForm.HH.$pristine" class="help-block">Hora requerido.</p>
         <p ng-show="form.userForm.MM.$invalid && !form.userForm.MM.$pristine" class="help-block">Minuto requerido.</p>
 
+        <div class="input-group">
+            <span class="input-group-addon" title="* ingreso" >Ingreso</span>    
+            <input type="number" name="ingreso" class="form-control ng-touched='{true}'" ng-model="emb.ingreso" required >
+        </div>
+       
     </div>
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary" >Guardar</button>

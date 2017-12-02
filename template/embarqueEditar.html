@@ -1,0 +1,51 @@
+<div class="modal-header">
+    <h3>Editar embarque</h3>
+</div>
+<form name="form.userForm" ng-submit="submitEditEmbarque()" novalidate>
+    <div class="modal-body">
+        <!-- Movilidad -->
+        <div class="form-group">
+            <label>Placa</label>
+            <span class="form-control" title="* Placa" >{{embarque.Movilidad.Placa}}</span>
+        </div>
+
+        <!-- Horario -->
+        <!-- Fecha -->
+        <label>Fecha</label>        
+        <div class="input-group">
+            <span class="input-group-addon" title="* Dia" >Dia</span>
+            <input type="number" name="dd"  class="form-control" ng-model="emb.dd"  min="1" max="31" required >
+            <span class="input-group-addon" title="* Mes" >Mes</span>
+            <input type="number" name="mm"  class="form-control" ng-model="emb.mm" min="1" max="12"required >
+            <span class="input-group-addon" title="* Año" >Año</span>
+            <input type="number" name="yy"  class="form-control" ng-model="emb.yy" min="17" max="999" required >
+
+            <p ng-show="form.userForm.dd.$invalid && !form.userForm.dd.$pristine" class="help-block">Dia requerido.</p>
+            <p ng-show="form.userForm.mm.$invalid && !form.userForm.mm.$pristine" class="help-block">Mes requerido.</p>
+            <p ng-show="form.userForm.yy.$invalid && !form.userForm.yy.$pristine" class="help-block">Año requerido.</p>
+        </div>
+
+        <!-- Hora -->
+        <label>Hora de Salida</label>        
+        <div class="input-group">
+            <span class="input-group-addon" title="* Hora" >Hora</span>    
+            <input type="number" name="HH" class="form-control ng-touched='{true}'" ng-model="emb.HH" min="0" max="23" required >
+            <span class="input-group-addon" title="* Minuto" >Minuto</span>
+            <select name="MM" class="form-control ng-touched='{true}'" ng-model="emb.MM"      required >
+                <option ng-repeat="Minuto in [00, 10, 15, 20, 30 ,40 ,45, 50]" ng-value="{{Minuto}}" ng-selected="{{Minuto == embarque.MM}}">{{Minuto}}</option>
+            </select>
+            
+            
+        </div>
+        <p ng-show="form.userForm.HH.$invalid && !form.userForm.HH.$pristine" class="help-block">Hora requerido.</p>
+        <p ng-show="form.userForm.MM.$invalid && !form.userForm.MM.$pristine" class="help-block">Minuto requerido.</p>
+        <label>Ingreso</label>  
+        <div class="input-group">
+            <span class="input-group-addon" title="* ingreso" >Ingreso</span>        
+            <input type="number" name="ingreso" class="form-control ng-touched='{true}'" ng-model="emb.ingreso" required >
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" >Guardar</button>
+    </div>
+</form>

@@ -26,6 +26,7 @@
             <li class="active" ><a href="embarque.html">Embarque</a></li>
             <li><a href="clientes.html">Clientes</a></li>
             <li><a href="movilidades.html">Movilidades</a></li>
+            <li><a href="reportes.html">Reportes</a></li>
         </ul>
         <h1>Embarque</h1>
     </header>
@@ -36,9 +37,10 @@
             <h4 class="list-group-item-heading">Hora: {{embarque.HH}}:{{embarque.MM}}</h4>
             <div class="list-group-item-text">Capacidad: {{embarque.Movilidad.Capacidad}}</div>
             <div class="list-group-item-text">Tipo: {{embarque.Movilidad.Tipo}}</div>
+            <div class="list-group-item-text"><h4>Ingreso: {{embarque.ingreso}}</h4></div>
             <br/>
 
-        <button ng-click="" class="btn btn-warning">Editar</button>
+        <button ng-click="editarEmbarque()" class="btn btn-warning">Editar</button>
         <button ng-click="" class="btn btn-danger">Eliminar</button>
     </div>
 
