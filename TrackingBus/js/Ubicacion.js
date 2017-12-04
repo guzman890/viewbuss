@@ -8,16 +8,16 @@ class Ubicacion {
   }
   // Getter
   get id() {
-    return this.id;
+    return this._id;
   }
   get marca() {
-    return this.marca;
+    return this._marca;
   }
   get latitud() {
-    return this.latitud;
+    return this._latitud;
   }
   get longitud() {
-    return this.longitud;
+    return this._longitud;
   }
 
   //Setter

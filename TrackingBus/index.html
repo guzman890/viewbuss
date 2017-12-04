@@ -72,6 +72,7 @@
     </script>
     <script>
       var myList = new Array();
+      flag = 1;
       function initMap() {
 
       	var latitud =  -16.3988084;
@@ -113,7 +114,7 @@
       }
       //Request API NODEJS
       
-      //function llenarBuses(){
+      function llenarBuses(){
       	$.ajax({
             url: "http://apiadminbuss.herokuapp.com/api/movilidad",
             type: "GET",
@@ -136,34 +137,59 @@
                 	console.log(id + " " + placa + " " + latitud + " " + longitud);
                 }
                 
-                //myList.push(new);
-
             },
             error : function(jqXHR, textStatus, errorThrown) {
-            	console.log("Erro conexion server");
+            	console.log("Error conexion server en llenarBuses");
             },
 
             timeout: 5000,
       	 });
-      //	}
+      }
       function updateData(){
+      	if(flag == 1){
+      		llenarBuses();
+      	}
+      	flag = 0;
+      	for (i = 0; i < myList.length; i++) {
+      		var id = myList[i].id;
+      		url = "http://apiadminbuss.herokuapp.com/api/movilidad/"+id;
+      		var jsonResul = updateToID(url, myList[i].latitud, myList[i].longitud, i);
+      	}
+      	
+      }
+      function updateToID(url, latitud, longitud, i){
+      	
       	$.ajax({
-            url: "http://apiadminbuss.herokuapp.com/api/movilidad/5a15d8c4b6abbb1d2887891e",
+            url: url,
             type: "GET",
 
             contentType: 'application/json; charset=utf-8',
             success: function(resultData) {
                 console.log(resultData);
-
+                if(Math.abs(resultData.latitud) - Math.abs(latitud) == 0 ){
+                	console.log("latitud no debe actualizarse");
+                }else{
+                	console.log("latitud debe actualizarse: ");// + Math.abs(resultData.latitud) - Math.abs(latitud));
+                	myList[i].latitud = resultData.latitud;
+                }
+                if(Math.abs(resultData.longitud) - Math.abs(longitud) == 0 ){
+                	console.log("longitud no debe actualizarse");
+                }
+                else{
+                	console.log("longitud debe actualizarse: " );//+ Math.abs(resultData.longitud) - Math.abs(longitud));
+                	myList[i].longitud = resultData.longitud;
+                }
+               
             },
             error : function(jqXHR, textStatus, errorThrown) {
-            	console.log("Erro conexion server");
+            	console.log("Error conexion server en updateData");
+
             },
 
-            timeout: 10000,
-      	 });
+      	});
+      	
       }
-      	//setInterval(updateData, 3000);
+      setInterval(updateData, 15000);
       	//setInterval(llenarBuses, 10000);
 
     </script>
