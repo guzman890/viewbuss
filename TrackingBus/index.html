@@ -120,23 +120,20 @@
 
             contentType: 'application/json; charset=utf-8',
             success: function(busesServer) {
-                console.log(busesServer);
-
+                //console.log(busesServer);
                 var myJson = JSON.stringify(busesServer);
                 var myObj = JSON.parse(myJson);
-                console.log(myObj.length);
+        
                 for (i = 0; i < myObj.length; i++) {
                 	var id = myObj[i]._id;
-                	console.log(id);
+                	
                 	var placa = myObj[i].Placa;
                 	var latitud = myObj[i].latitud;
                 	var longitud = myObj[i].longitud;
 
-                	//var ubic = new Ubicacion(id, placa, latitud, longitud);
-                	//myList.push(ubic);
-
+                	var ubic = new Ubicacion(id, placa, latitud, longitud);
+                	myList.push(ubic);
                 	console.log(id + " " + placa + " " + latitud + " " + longitud);
-
                 }
                 
                 //myList.push(new);

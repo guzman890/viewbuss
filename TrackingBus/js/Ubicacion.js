@@ -1,9 +1,10 @@
 class Ubicacion {
+
   constructor(id, marca, latitud, longitud) {
-    this.id = id;
-    this.marca = marca;
-    this.latitud = latitud;
-    this.longitud = longitud;
+    this._id = id;
+    this._marca = marca;
+    this._latitud = latitud;
+    this._longitud = longitud;
   }
   // Getter
   get id() {
@@ -21,16 +22,16 @@ class Ubicacion {
 
   //Setter
   set id(newId) {
-        this.id = newId;  
+        this._id = newId;  
   }
   set marca(newMarca) {
-        this.marca = newMarca;  
+        this._marca = newMarca;  
   }
   set latitud(newLatitud) {
-        this.latitud = newLatitud;  
+        this._latitud = newLatitud;  
   }
   set longitud(newLongitud) {
-        this.longitud = newLongitud;  
+        this._longitud = newLongitud;  
   }
 
 }
