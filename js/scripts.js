@@ -164,7 +164,8 @@ var embarqueFormctrl = function ($scope, $http, ngDialog) {
     $scope.emb.yy =$scope.CurrentDate.getFullYear();
     $scope.emb.HH =$scope.CurrentDate.getHours();
     $scope.emb.MM =$scope.CurrentDate.getMinutes();
-
+    $scope.emb.ingreso = 000;
+    
     $http.get(urlApi+"/api/movilidad").then(function (response) {
         console.log(response.data);        
         $scope.movilidades = response.data;
@@ -178,7 +179,8 @@ var embarqueFormctrl = function ($scope, $http, ngDialog) {
                 mm: $scope.emb.mm,
                 yy: $scope.emb.yy,
                 HH: $scope.emb.HH,
-                MM: $scope.emb.MM 
+                MM: $scope.emb.MM,
+                ingreso: $scope.emb.ingreso
             });
               
             var config = {
