@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog.min.css">
     <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.min.css">
     <script src="lib/ng-dialog/js/ngDialog.min.js"></script>
-    
+    <meta charset="utf-8">
     <script src="js/scripts.js"></script>
     <title>Desarrollo Software</title>
     <!-- Insertamos el archivo CSS compilado y comprimido -->
@@ -30,23 +30,24 @@
     <div class="jumbotron"  ng-controller="CtrlReporte">
         <h2>Reportes Mensual</h2>
         <br/>
-        <table class="table table-hover">
-            <thead class="thead-inverse">
-              <tr>
-                <th>Movilidad</th>
-                <th>Fechas</th>
-                <th>Ingresos</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr  ng-repeat="embarque in embarques">
-                <td>{{embarque.Movilidad.Placa}}</td>
-                <td>{{embarque.mm}}/{{embarque.dd}}</td>
-                <td>{{embarque.ingreso}}</td>
-              </tr>
-              <td><h3><kbd>Total: {{ getTotal() }}</kbd></h3></td>
-            </tbody>
-        </table>
+        <div class="input-group">
+            <span class="input-group-addon" title="* Año" >Año</span>
+            <input type="number" name="yy"  class="form-control" ng-model="rep.yy" min="17" max="999" required >
+            <span class="input-group-addon" title="* Mes" >Mes</span>
+            <input type="number" name="mm"  class="form-control" ng-model="rep.mm" min="1" max="12"required >
+            <span class="input-group-addon" title="* Dia" >Dia inicial</span>
+            <input type="number" name="ddi"  class="form-control" ng-model="rep.ddi"  min="1" max="31" required >
+            <span class="input-group-addon" title="* Dia" >Dia final</span>
+            <input type="number" name="ddf"  class="form-control" ng-model="rep.ddf"  min="1" max="31" required >
+
+            <p ng-show="form.userForm.ddi.$invalid && !form.userForm.ddi.$pristine" class="help-block">Dia inicial requerido.</p>
+            <p ng-show="form.userForm.ddf.$invalid && !form.userForm.ddf.$pristine" class="help-block">Dia final requerido.</p>
+            <p ng-show="form.userForm.mm.$invalid && !form.userForm.mm.$pristine" class="help-block">Mes requerido.</p>
+            <p ng-show="form.userForm.yy.$invalid && !form.userForm.yy.$pristine" class="help-block">Año requerido.</p>
+        </div>
+        <button ng-click="updateReport()" class="btn btn-primary">Consultar</button>
+        
+        <div ng-include="'template/report.html'"></div>
 
     </div>
     <!-- angular fin cliente -->

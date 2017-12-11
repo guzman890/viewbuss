@@ -32,11 +32,11 @@
     </header>
     <!-- angular inicio movilidad -->
     <div class="jumbotron"  ng-controller="EmbarqueDetalleCtrl">
-            <h2> Placa: {{embarque.Movilidad.Placa}} </h2>     
+            <h2> Placa: {{embarque.Placa}} </h2>     
             <h4 class="list-group-item-heading">Fecha: {{embarque.dd}}/{{embarque.mm}}/{{embarque.yy}}</h4>
-            <h4 class="list-group-item-heading">Hora: {{embarque.HH}}:{{embarque.MM}}</h4>
-            <div class="list-group-item-text">Capacidad: {{embarque.Movilidad.Capacidad}}</div>
-            <div class="list-group-item-text">Tipo: {{embarque.Movilidad.Tipo}}</div>
+            <h4 class="list-group-item-heading">Hora: {{embarque.H}}:{{embarque.M}}</h4>
+            <div class="list-group-item-text">Capacidad: {{embarque.Capacidad}}</div>
+            <div class="list-group-item-text">Tipo: {{embarque.Tipo}}</div>
             <div class="list-group-item-text"><h4>Ingreso: {{embarque.ingreso}}</h4></div>
             <br/>
 

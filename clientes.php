@@ -35,7 +35,7 @@
     <div class="jumbotron"  ng-controller="ClientesDetalleCtrl">
         <br/>
         <p class="list-group-item-heading">{{cliente.Nombre}}</p>
-        <h5 class="list-group-item-text">{{cliente.DNI}}</h5>
+        <h5 class="list-group-item-text">DNI: {{cliente.DNI}}</h5>
         <br/>
 
         <button ng-click="editarCliente()" class="btn btn-warning">Editar</button>

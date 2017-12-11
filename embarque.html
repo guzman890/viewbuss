@@ -32,12 +32,12 @@
      
             <button ng-click="nuevoEmbarque()" class="btn btn-primary">Agregar</button>
             <div class="list-group" ng-repeat="embarque in embarques">
-                <a href="embarque.php?id={{embarque._id}}" class="list-group-item">
+                <a href="embarque.php?id={{embarque.embarqueid}}" class="list-group-item">
                     <h4 class="list-group-item-heading">Fecha: {{embarque.dd}}/{{embarque.mm}}/{{embarque.yy}}</h4>
-                    <h4 class="list-group-item-heading">Hora: {{embarque.HH}}:{{embarque.MM}}</h4>
-                    <div class="list-group-item-text">Placa: {{embarque.Movilidad.Placa}}</div>
-                    <div class="list-group-item-text">Capacidad: {{embarque.Movilidad.Capacidad}}</div>
-                    <div class="list-group-item-text">Tipo: {{embarque.Movilidad.Tipo}}</div>
+                    <h4 class="list-group-item-heading">Hora: {{embarque.H}}:{{embarque.M}}</h4>
+                    <div class="list-group-item-text">Placa: {{embarque.Placa}}</div>
+                    <div class="list-group-item-text">Capacidad: {{embarque.Capacidad}}</div>
+                    <div class="list-group-item-text">Tipo: {{embarque.Tipo}}</div>
                     <div class="list-group-item-text">Ingreso: {{embarque.ingreso}}</div>
                 </a>
             </div>

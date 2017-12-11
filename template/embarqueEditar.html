@@ -6,7 +6,7 @@
         <!-- Movilidad -->
         <div class="form-group">
             <label>Placa</label>
-            <span class="form-control" title="* Placa" >{{embarque.Movilidad.Placa}}</span>
+            <span class="form-control" title="* Placa" >{{embarque.Placa}}</span>
         </div>
 
         <!-- Horario -->
@@ -29,9 +29,9 @@
         <label>Hora de Salida</label>        
         <div class="input-group">
             <span class="input-group-addon" title="* Hora" >Hora</span>    
-            <input type="number" name="HH" class="form-control ng-touched='{true}'" ng-model="emb.HH" min="0" max="23" required >
+            <input type="number" name="HH" class="form-control ng-touched='{true}'" ng-model="emb.H" min="0" max="23" required >
             <span class="input-group-addon" title="* Minuto" >Minuto</span>
-            <select name="MM" class="form-control ng-touched='{true}'" ng-model="emb.MM"      required >
+            <select name="MM" class="form-control ng-touched='{true}'" ng-model="emb.M"      required >
                 <option ng-repeat="Minuto in [00, 10, 15, 20, 30 ,40 ,45, 50]" ng-value="{{Minuto}}" ng-selected="{{Minuto == embarque.MM}}">{{Minuto}}</option>
             </select>
             

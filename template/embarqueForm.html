@@ -8,9 +8,9 @@
             <label>Nombre</label>
             <select name="movilidad" class="form-control ng-touched" ng-model="emb.movilidad" required>
                 <option value="" selected disabled hidden>---Please select---</option> <!-- not selected / blank option -->
-                <option ng-repeat="movilidad in movilidades"  value="{{movilidad._id}}">{{movilidad.Placa}}</option>
+                <option ng-repeat="movilidad in movilidades"  value="{{movilidad.Placa}}">{{movilidad.Placa}}</option>
             </select>
-            <p ng-show="form.userForm.movilidad.$invalid && !form.userForm.movilidad.$pristine" class="help-block">Nuemero de Placa Requerido.</p>
+            <p ng-show="form.userForm.movilidad.$invalid && !form.userForm.movilidad.$pristine" class="help-block">Número de Placa Requerido.</p>
         </div>
 
         <!-- Horario -->
@@ -33,9 +33,9 @@
         <label>Hora de Salida</label>        
         <div class="input-group">
             <span class="input-group-addon" title="* Hora" >Hora</span>    
-            <input type="number" name="HH" class="form-control ng-touched='{true}'" ng-model="emb.HH" min="0" max="23" required >
+            <input type="number" name="HH" class="form-control ng-touched='{true}'" ng-model="emb.H" min="0" max="23" required >
             <span class="input-group-addon" title="* Minuto" >Minuto</span>
-            <select name="MM" class="form-control ng-touched='{true}'" ng-model="emb.MM"      required >
+            <select name="MM" class="form-control ng-touched='{true}'" ng-model="emb.M"      required >
                 <option value="" selected disabled hidden>---Minutos---</option> <!-- not selected / blank option -->    
                 <option ng-repeat="Minuto in [00, 10, 15, 20, 30 ,40 ,45, 50]" >{{Minuto}}</option>
             </select>

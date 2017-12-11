@@ -1,5 +1,5 @@
 
-var urlApi = "http://apiadminbuss.herokuapp.com";
+var urlApi = "http://localhost:3000";
 var app = angular.module("myApp", ['ngDialog']);
 
 app.controller("CtrlClientes", function($scope, $http, ngDialog) {
@@ -162,8 +162,8 @@ var embarqueFormctrl = function ($scope, $http, ngDialog) {
     $scope.emb.dd =$scope.CurrentDate.getDate();
     $scope.emb.mm =$scope.CurrentDate.getMonth()+1;
     $scope.emb.yy =$scope.CurrentDate.getFullYear();
-    $scope.emb.HH =$scope.CurrentDate.getHours();
-    $scope.emb.MM =$scope.CurrentDate.getMinutes();
+    $scope.emb.H =$scope.CurrentDate.getHours();
+    $scope.emb.M =$scope.CurrentDate.getMinutes();
     $scope.emb.ingreso = 000;
     
     $http.get(urlApi+"/api/movilidad").then(function (response) {
@@ -178,8 +178,8 @@ var embarqueFormctrl = function ($scope, $http, ngDialog) {
                 dd: $scope.emb.dd,
                 mm: $scope.emb.mm,
                 yy: $scope.emb.yy,
-                HH: $scope.emb.HH,
-                MM: $scope.emb.MM,
+                H: $scope.emb.H,
+                M: $scope.emb.M,
                 ingreso: $scope.emb.ingreso
             });
               
@@ -188,6 +188,7 @@ var embarqueFormctrl = function ($scope, $http, ngDialog) {
                     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
                 }
             }
+            console.log(data);
             $http.post(urlApi+'/api/embarque', data, config)
                 .then(
                     function (response) {
@@ -300,8 +301,8 @@ var embarqueEditarctrl = function ($scope, $http, ngDialog) {
     $scope.emb.dd =$scope.embarque.dd;
     $scope.emb.mm =$scope.embarque.mm;
     $scope.emb.yy =$scope.embarque.yy;
-    $scope.emb.HH =$scope.embarque.HH;
-    $scope.emb.MM =$scope.embarque.MM;
+    $scope.emb.H =$scope.embarque.H;
+    $scope.emb.M =$scope.embarque.M;
     $scope.emb.ingreso =$scope.embarque.ingreso;
 
     $http.get(urlApi+"/api/movilidad").then(function (response) {
@@ -312,13 +313,13 @@ var embarqueEditarctrl = function ($scope, $http, ngDialog) {
     $scope.submitEditEmbarque = function () {
 
             var data = $.param({
-                embarque: $scope.embarque._id,
-                Movilidad : $scope.embarque.Movilidad._id,
+                embarque: $scope.embarque.embarqueid,
+                Movilidad : $scope.embarque.Movilidad,
                 dd: $scope.emb.dd,
                 mm: $scope.emb.mm,
                 yy: $scope.emb.yy,
-                HH: $scope.emb.HH,
-                MM: $scope.emb.MM,
+                H: $scope.emb.H,
+                M: $scope.emb.M,
                 ingreso: $scope.emb.ingreso 
             });
               
@@ -423,9 +424,35 @@ var clienteEditarctrl = function ($scope, $http, ngDialog) {
 // reportes
 
 app.controller("CtrlReporte", function($scope, $http, ngDialog) {
+    $scope.rep = {};
+    $scope.CurrentDate = new Date();  
+    $scope.rep.yy = $scope.CurrentDate.getFullYear();  
+    $scope.rep.mm = $scope.CurrentDate.getMonth()+1;
+    $scope.rep.ddi = 1;
+    $scope.rep.ddf = 31;
     $http.get(urlApi+"/api/embarque").then(function (response) {
         $scope.embarques = response.data;
-    }); 
+    });
+    
+    $scope.updateReport = function () {
+        var data = $.param({
+            mm: $scope.rep.mm,
+            ddi : $scope.rep.ddi,
+            ddf : $scope.rep.ddf,
+
+        });
+        
+        var config = {
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+            }
+        }
+        $http.post(urlApi+"/api/report/embarque", data, config)
+            .then(function (response) {
+                $scope.embarques = response.data;
+            });
+    };
+
     $scope.getTotal = function(){
         var total = 0;
         for(var i = 0; i < $scope.embarques.length; i++){

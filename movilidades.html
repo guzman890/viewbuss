@@ -32,7 +32,7 @@
         <button ng-click="nuevoMovilidad()" class="btn btn-primary">Agregar</button>
         
         <div class="list-group" ng-repeat="movilidad in movilidades">
-            <a href="movilidades.php?id={{movilidad._id}}" class="list-group-item">
+            <a href="movilidades.php?id={{movilidad.Placa}}" class="list-group-item">
                 <h4 class="list-group-item-heading">Placa: {{movilidad.Placa}}</h4>
                 <div class="list-group-item-text">Capacidad: {{movilidad.Capacidad}}</div>
                 <div class="list-group-item-text">Tipo: {{movilidad.Tipo}}</div>
