@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Ventanilla</th>
+            <th>Pasillo </th>
+            <th> </th>
+            <th>Pasillo </th>
+            <th>Ventanilla</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="i in range(0,6)">
+            <td ng-repeat="value in range(i*4+1,i*4+2)">
+                <a ng-click="registrar(value)" class="list-group-item">
+                        <div class="list-group-item-heading" >Num: {{value}}</div>
+                        <div class="list-group-item-text" >Cliente {{getAsientoByNum(value)}}</div> 
+                </a>
+            </td>
+            <td>
+
+            </td>
+            <td ng-repeat="value in range(i*4+3,i*4+4)">
+                <a ng-click="registrar(value)" class="list-group-item">
+                        <div class="list-group-item-heading" >Num: {{value}}</div>
+                        <div class="list-group-item-text" >Cliente: {{getAsientoByNum(value)}}</div>          
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

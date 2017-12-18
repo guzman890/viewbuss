@@ -42,9 +42,14 @@
 
         <button ng-click="editarEmbarque()" class="btn btn-warning">Editar</button>
         <button ng-click="" class="btn btn-danger">Eliminar</button>
+        
+        <div>
+            <div ng-include="'template/asientos.html'"></div>                
+        </div>
     </div>
 
         <!-- angular fin movilidad -->
+    
 
     <div>
         <p>&copy; km4l30nc1t0-development</p>

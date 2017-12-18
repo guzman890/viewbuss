@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <h3>Registrar Asientos</h3>
+</div>
+<form name="form.userForm" ng-submit="submitAsiento()" novalidate>
+    <div class="modal-body">
+        <!-- Nombre -->
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="nombre" class="form-control" ng-model="asi.nombre" required>
+            <p ng-show="form.userForm.nombre.$invalid && !form.userForm.nombre.$pristine" class="help-block">Nombre Requerido.</p>
+        </div>
+
+        <!-- DNI -->
+        <div class="form-group">
+            <label>DNI / Documento de identidad</label>
+            <input type="text" name="DNI" class="form-control" ng-model="asi.DNI" >
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" ng-disabled="form.userForm.$invalid">Guardar</button>
+    </div>
+</form>

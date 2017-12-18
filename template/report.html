@@ -1,0 +1,21 @@
+<table class="table table-hover">
+    <thead class="thead-inverse">
+        <tr>
+            <th>Movilidad</th>
+            <th>Fechas</th>
+            <th>Ingresos</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="embarque in embarques">
+            <td>{{embarque.Placa}}</td>
+            <td>{{embarque.mm}}/{{embarque.dd}}</td>
+            <td>{{embarque.ingreso}}</td>
+        </tr>
+        <td>
+            <h3>
+                <kbd>Total: {{ getTotal() }}</kbd>
+            </h3>
+        </td>
+    </tbody>
+</table>

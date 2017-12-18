@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog.min.css">
     <link rel="stylesheet" href="lib/ng-dialog/css/ngDialog-theme-default.min.css">
     <script src="lib/ng-dialog/js/ngDialog.min.js"></script>
-    
+
     <script src="js/scripts.js"></script>
     <title>Desarrollo Software</title>
     <!-- Insertamos el archivo CSS compilado y comprimido -->
@@ -13,23 +14,34 @@
     <!-- Theme opcional -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 </head>
+
 <body>
-<div class="container" ng-app="myApp">
-    <header class="page-header">
-        <ul class="nav nav-pills pull-right">
-            <li><a href="index.html">Inicio</a></li>
-            <li class="active" ><a href="embarque.html">Embarque</a></li>
-            <li><a href="clientes.html">Clientes</a></li>
-            <li><a href="movilidades.html">Movilidades</a></li>
-            <li><a href="reportes.html">Reportes</a></li>
-        </ul>
-        <h1>Embarque</h1>
-    </header>
-    <!-- angular inicio movilidad -->
-    <div class="jumbotron"  ng-controller="CtrlEmbarques">
+    <div class="container" ng-app="myApp">
+        <header class="page-header">
+            <ul class="nav nav-pills pull-right">
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+                <li class="active">
+                    <a href="embarque.html">Embarque</a>
+                </li>
+                <li>
+                    <a href="clientes.html">Clientes</a>
+                </li>
+                <li>
+                    <a href="movilidades.html">Movilidades</a>
+                </li>
+                <li>
+                    <a href="reportes.html">Reportes</a>
+                </li>
+            </ul>
+            <h1>Embarque</h1>
+        </header>
+        <!-- angular inicio movilidad -->
+        <div class="jumbotron" ng-controller="CtrlEmbarques">
             <h2>Lista de Embarques </h2>
             <p>Esta es la seccionde administrador de embarque sirvase hacer click o crear uno nuevo para el dia de hoy</p>
-     
+
             <button ng-click="nuevoEmbarque()" class="btn btn-primary">Agregar</button>
             <div class="list-group" ng-repeat="embarque in embarques">
                 <a href="embarque.php?id={{embarque._id}}" class="list-group-item">
@@ -41,17 +53,19 @@
                     <div class="list-group-item-text">Ingreso: {{embarque.ingreso}}</div>
                 </a>
             </div>
+
         </div>
         <!-- angular fin movilidad -->
 
-    <div>
-        <p>&copy; km4l30nc1t0-development</p>
+        <div>
+            <p>&copy; km4l30nc1t0-development</p>
+        </div>
     </div>
-</div>
 
-<!--Insertamos jQuery dependencia de Bootstrap-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!--Insertamos el archivo JS compilado y comprimido -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--Insertamos jQuery dependencia de Bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--Insertamos el archivo JS compilado y comprimido -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
+
 </html>
