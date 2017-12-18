@@ -1,6 +1,6 @@
 
-//var urlApi = "http://apiadminbuss.herokuapp.com";
-var urlApi = "http://localhost:3000";
+var urlApi = "http://apiadminbuss.herokuapp.com";
+//var urlApi = "http://localhost:3000";
 var app = angular.module("myApp", ['ngDialog']);
 
 app.controller("CtrlClientes", function ($scope, $http, ngDialog) {
